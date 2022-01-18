@@ -6,9 +6,9 @@ Repository içerisinde yer alan `dataregex.json` dosyada yer alan kayıtların i
 1. Veritabanı "dataregex.db" adında bir sqlite veritabanı olacaktır.
 2. Veritabanı içerisindeki tablo her seferinde yeniden oluşturulmalı farklılık olarak aktarım zamanı tablo adının yanına eklenmelidir. örn : data_20221208
 3. Tablo aşağıdaki sütunları içermelidir.
-  a. email (eposta adresi)
-  b. username (kullanıcı adı)
-  c. isimsoyisim (isim soyisim)
+  - email (eposta adresi)
+  - username (kullanıcı adı)
+  - isimsoyisim (isim soyisim)
   d. emailuserlk (e posta kullanıcı adını ya da bir bölümünü (en az 3 harf) içeriyor mu T/F)
   e. 
   f. dogumyil (Doğum Yılı)
