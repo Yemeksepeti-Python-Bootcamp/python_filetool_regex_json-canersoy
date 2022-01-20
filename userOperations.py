@@ -39,8 +39,8 @@ class userOperations:
                     {1 if sum((Counter(user["email"])&Counter(user["username"])).values()) >= 3 else 0},
                     {1 if user["username"] in user["profile"]["name"].split() else 0},
                     {user["profile"]["dob"].split("-")[0]},
-                    {user["profile"]["dob"].split("-")[1]},
-                    {user["profile"]["dob"].split("-")[2]},
+                    {int(user["profile"]["dob"].split("-")[1].strip("0"))},
+                    {int(user["profile"]["dob"].split("-")[2].strip("0"))},
                     {user["profile"]["address"].split(", ")[2]},
                     {1});
                 """
