@@ -8,7 +8,7 @@ class configOperations:
 
     def readConfig(self):
         #Reads dbconfig.ini file
-        self.config.read('dbConfig.ini')
+        self.config.read('config.ini')
 
         #Loops through each section in db.config file
         for sections in self.config:
