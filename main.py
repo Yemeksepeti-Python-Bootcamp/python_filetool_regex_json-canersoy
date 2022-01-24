@@ -1,20 +1,19 @@
 from dbOperations import dbOperations
 from userOperations import userOperations
-from datetime import datetime
-import argparse
+from initOperations import initOperations
 
-#Init args object
-parser = argparse.ArgumentParser() 
-parser.add_argument("--json_file", "--file", type=str, required=True)
-parser.add_argument("--db_file", "--db", type=str, required=True)
-args = parser.parse_args()
+#Init args object and get system args from command line
+initOp = initOperations()
+initOp.initArgsObjAndGetSysArgs()
 
-#Assign json_file and db_file path taken from command line as system args
-json_file = args.json_file
-db_file = args.db_file
-
-#Generates a tableId str of current date and time (Ex: user_20012022_015633)
-tableId = datetime.now().strftime("%d%m%Y_%H%M%S")
+"""
+ASSIGN tableId, json_file and db_file
+"""
+#Generate a tableId str of current date and time (Ex: user_20012022_015633)
+tableId = initOp.generateTableId()
+#Get json and db file path from system args
+json_file = initOp.getJsonFilePath()
+db_file = initOp.getDbFilePath()
 
 #Init dbOp object from dbOperations class and call connectDbAndCreateTable method
 dbOp = dbOperations(db_file,tableId)

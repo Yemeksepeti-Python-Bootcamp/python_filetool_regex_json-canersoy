@@ -1,9 +1,6 @@
 import sqlite3
 
 class dbOperations():
-    #Init dbOperations class with instance of config from input dict config, 
-    #con as Connection object, cur as Cursor object, 
-    #createTableQuery as empty str
     def __init__(self,db_file,tableId):
         self.db_file = db_file
         self.con = sqlite3.Connection

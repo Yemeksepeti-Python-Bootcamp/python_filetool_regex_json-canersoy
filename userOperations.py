@@ -3,16 +3,13 @@ from dbOperations import dbOperations
 from collections import Counter
 
 class userOperations:
-    #Init dbOperations class with instance of config from input dict config, 
-    #jsonData as empty dict, insertIntoQuery as empty str,
-    #tableId from tableId, dbOp from dBOperations class
     def __init__(self,json_file,db_file,tableId):
         self.json_file = json_file
         self.db_file = db_file
         self.jsonData = {}
         self.insertIntoQuery = ""
         self.tableId = tableId
-        self.dbOp = dbOperations(self.db_file,tableId)
+        self.dbOp = dbOperations(db_file,tableId)
 
     #Read JSON file
     def __parseJsonFile(self):
@@ -38,7 +35,7 @@ class userOperations:
                     ("{user["email"]}",
                     "{user["profile"]["name"]}",
                     {1 if sum((Counter(user["email"])&Counter(user["username"])).values()) >= 3 else 0},
-                    {1 if user["username"] in user["profile"]["name"].split() else 0},
+                    {1 if any(word in user["username"].lower() for word in user["profile"]["name"].lower().split()) else 0},
                     {int(user["profile"]["dob"].split("-")[0])},
                     {int(user["profile"]["dob"].split("-")[1].strip("0"))},
                     {int(user["profile"]["dob"].split("-")[2].strip("0"))},
